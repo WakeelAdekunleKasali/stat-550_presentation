@@ -6,6 +6,7 @@ format:
     width: 1200
     slide-number: c/t
     background-image: 08_styling/normal-background-1.png
+    output-file: index.html
     parallax-background-size: 100% 100%
     background-size: 100% 100%
     background-position: 100% 100%
