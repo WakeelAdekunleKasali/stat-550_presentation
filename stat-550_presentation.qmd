@@ -1,65 +1,241 @@
 ---
-title: "<span style='color:#f6f6f6; font-size:100pt'>P-values</span>"
-author: "<span style='color:#f8f8f8; font-size:30pt'>Javier Mtz.-Rdz.</span>"
+title: "<span style='color:#f6f6f6; font-size:100pt'>P-values:</span>"
+subtitle: "<span style='color:#f6f6f6; font-size:50pt'>Understanding Statistical Significance and Its Limitations</span>"
+author: "<span style='color:#f10f10f10; font-size:30pt'>Javier Mtz.-Rdz.</span>"
+bibliography: 07_refs/p-value.bib
 format: 
   revealjs:
     width: 1200
+    slide-number: c
     background-image: 08_styling/normal-background-1.png
     output-file: index.html
     parallax-background-size: 100% 100%
     background-size: 100% 100%
     background-position: 100% 100%
     background-repeat: no-repeat
-    fontsize: 1.3em
+    fontsize: 2.5em
     css: ["08_styling/theme_jmr.css"]
-    transition: slide
+    transition: none
     background-transition: fade
 title-slide-attributes:
     data-background-image: 08_styling/background.png
     data-background-size: 100% 100%  
-
 ---
 
+```{r message=FALSE, warning=FALSE, include=FALSE}
+# Setup ----
+## Packages to use ----
+pacman::p_load(tidyverse, janitor, writexl, 
+              readxl, scales, mytidyfunctions, 
+              presupuestoR, ggpattern)
 
-    
+## Set theme ------
+theme_set(theme_jmr(text = element_text(family = "Lato",
+                                        size=20),
+                    panel.grid = element_blank(),
+                    plot.title = formt_text(size = 23)))
 
-## {fullscreen="true"}
+options(ggplot2.discrete.colour = c("#1E81A2", "#FF483B", "#039176", "#FFAC41"),
+        ggplot2.discrete.fill = c("#1E81A2", "#FF483B", "#039176", "#FFAC41"))
 
-::: {style='font-size:2.5em'}
-<h3>*Outline*</h3>
+## Specify locale ----
+Sys.setlocale("LC_ALL", "es_ES.UTF-8")
 
-* The lab quizzes are due Friday at 11:59pm, and the last attempt will be recorded (not the highest attempt!!) 
-* Please click submit after finishing the quiz. If quiz is left open, it will be auto-submitted by Canvas on Saturday (which is after the due date and may lead to a late penalty).
+## Disable scientific notation ----
+options(scipen = 999)
+```
+
+## Outline {visibility="hidden"}
+
+-   Definition.
+-   Importance.
+    -   Context of current.
+-   Examples of misuses.
+    -   Rejecting H_0
+    -   Accepting H_0
+-   Possible solutions
+-   Solutions in context
+-   Conclusion
+
+Cites
+
+@Baker:2016
+@Harrell:2017
+@AltmanBland:1995
+@WassersteinLazar:2016
+@
+
+------------------------------------------------------------------------
+::: {style='color:#4f4f4f;font-size:1.5em'}
+## What is a p-value?
+
+
+
+> The **p-value** tells us the probability of observing the data that we did, assuming that the null hypothesis is true.
+
 :::
 
+##  {transition="none"}
 
-## {fullscreen="true"}
+```{r, dev.args=list(bg="transparent")}
+#| fig-height: 4.5
+#| fig-width: 8
+#| dev: "png"
 
-::: {style='font-size:2.5em'}
+q <- map_dbl(c(0.05, 0.025, 0.975, 0.95), qnorm)
+z <- tibble(Z = seq(-4, 4, 0.01), density = dnorm(Z))
 
-<h3>*Importance*</h3>
+(
+  plot <- ggplot(z) + 
+    geom_area(aes(Z, density),
+              linewidth = 2,
+              color = "black",
+              fill = "grey",
+              alpha = 0.2) + 
+    ylab("Density") + 
+    ggtitle(expression(paste(H[0], ": ", mu == mu[0], " vs ",
+                             H[1], ": ", mu > mu[0]))) 
+)
+  
+```
 
-* Scatterplots
-* Association
-* Correlation
-* Fitting a regression model
-* Residual Analysis
-* Removing data points
+##  {transition="none"}
+
+```{r, dev.args=list(bg="transparent")}
+#| fig-height: 4.5
+#| fig-width: 8
+#| dev: "png"
+
+
+(plot <- plot +
+    geom_segment(aes(x = qnorm(0.9), xend= qnorm(0.9), 
+                     y = 0, yend=dnorm(qnorm(0.9))),
+                 colour="#FF483B", linetype = 'dashed') +
+    geom_ribbon(z %>% filter(Z > qnorm(0.9)),
+                mapping = aes(x = Z, ymax = density, ymin = 0),
+                alpha = 0.3, fill = "#FF483B") + 
+    scale_x_continuous(labels = expression(q[1-alpha]),
+                       breaks = c(qnorm(0.9))) 
+)
+  
+```
+
+##  {transition="none"}
+
+```{r, dev.args=list(bg="transparent")}
+#| fig-height: 4.5
+#| fig-width: 8
+#| dev: "png"
+
+
+test_statistic <- 0.7
+
+(plot_acc_null <- plot +
+    geom_segment(aes(x = qnorm(test_statistic), xend= qnorm(test_statistic), 
+                     y = 0, yend=dnorm(qnorm(test_statistic))),
+                 colour="#1E81A2",
+                 linetype = 'dashed') +
+    geom_ribbon(z %>% filter(Z > qnorm(test_statistic)),
+                mapping = aes(x = Z, ymax = density, ymin = 0),
+                alpha = 0.3, fill = "#1E81A2") 
+)
+  
+```
+
+##  {transition="none"}
+
+```{r, dev.args=list(bg="transparent")}
+#| fig-height: 4.5
+#| fig-width: 8
+#| dev: "png"
+
+
+test_statistic <- 0.95
+
+(plot_rej_null <- plot +
+    geom_segment(aes(x = qnorm(test_statistic), xend= qnorm(test_statistic), 
+                     y = 0, yend=dnorm(qnorm(test_statistic))),
+                 colour="#1E81A2",
+                 linetype = 'dashed') +
+    geom_ribbon(z %>% filter(Z > qnorm(test_statistic)),
+                mapping = aes(x = Z, ymax = density, ymin = 0),
+                alpha = 0.3, fill = "#1E81A2") 
+)
+  
+```
+
+## In summary, a p-value
+
+* Is between 0 and 1. 
+* Is use to reject or not reject the null hypothesis. 
+
+
+## 
+
+:::: {.columns}
+
+::: {.column width="50%"}
+![](02_figs/p_values_2x.png){fig-align="center"}
+
+@P:2024
 
 :::
 
-## {fullscreen="true"}
-
-::: {style='font-size:2.5em'}
-
-<h3>*The errors*</h3>
-
-* Make sure you are placing each variable in the right place. It applies to scatterplots, regression models, and residual analysis. 
-
-
+::: {.column width="50%"}
+![](02_figs/significant-section.png){fig-align="center"}
+@xS:2024
 
 :::
 
+::::
 
 
+
+## Why is it important?
+
+- Statistical significance and P values are widely used in scientific research to evaluate the strength of evidence.
+- However, their interpretation is often misunderstood, leading to misconceptions and missteps in scientific inquiry.
+- This presentation aims to shed light on the complexities of statistical significance and P values, and their implications in research.
+
+##
+
+![](02_figs/Z_plot.png){fig-align="center"}
+
+##
+
+![](02_figs/rsos140216f01.jpg){fig-align="center"}
+
+@Colquhoun:2014
+
+## **The Fallacy of Statistical Significance**
+- Statistical significance does not necessarily imply clinical importance.
+- Misinterpretation of non-significant findings can lead to erroneous conclusions.
+- Inadequate sample sizes in clinical trials limit the power to detect real treatment effects.
+- Examples and statistics highlight the consequences of relying solely on statistical significance.
+
+## **Rethinking the Role of P Values**
+- The American Statistical Association (ASA) issued a statement addressing misuse of P values.
+- P values alone cannot determine the truth or importance of research findings.
+- Common misconceptions about P values and their limitations.
+- Importance of transparent reporting and rigorous analysis in scientific research.
+
+## **Addressing Missteps in Scientific Inquiry**
+- ASA's recommendations emphasize responsible use of P values and transparent reporting.
+- Need for critical thinking and careful interpretation of statistical evidence.
+- Reactions from experts and perspectives on the ASA's statement.
+- Strategies for improving research practices and avoiding common pitfalls.
+
+## **Moving Towards a More Rigorous Approach**
+- Encouragement for researchers to adopt a nuanced and rigorous approach to statistical analysis.
+- Importance of transparency, reproducibility, and open science in advancing scientific knowledge.
+- Suggestions for improving research practices and fostering a culture of critical thinking.
+
+## **Conclusion**
+- Summary of key takeaways: understanding limitations of statistical significance and P values.
+- Call to action for researchers to embrace transparency, rigor, and critical thinking in their work.
+- Emphasis on the collective responsibility to uphold the integrity of scientific research for the betterment of society.
+
+## References
+::: {#refs}
+:::
 

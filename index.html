@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.4.549">
 
   <meta name="author" content="Javier Mtz.-Rdz.">
-  <title>P-values</title>
+  <title>P-values:</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -29,7 +29,27 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="stat-550_presentation_files/libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="08_styling/theme_jmr.css">
   <link href="stat-550_presentation_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -327,54 +347,147 @@
     <div class="slides">
 
 <section id="title-slide" data-background-image="08_styling/background.png" data-background-size="100% 100%" class="quarto-title-block center">
-  <h1 class="title"><span style="color:#f6f6f6; font-size:100pt">P-values</span></h1>
+  <h1 class="title"><span style="color:#f6f6f6; font-size:100pt">P-values:</span></h1>
+  <p class="subtitle"><span style="color:#f6f6f6; font-size:50pt">Understanding Statistical Significance and Its Limitations</span></p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-<span style="color:#f8f8f8; font-size:30pt">Javier Mtz.-Rdz.</span> 
+<span style="color:#f10f10f10; font-size:30pt">Javier Mtz.-Rdz.</span> 
 </div>
 </div>
 </div>
 
 </section>
-<section id="section" class="slide level2" data-fullscreen="true">
+
+<section class="slide level2">
+
+</section>
+<section id="what-is-a-p-value" class="slide level2" style="color:#4f4f4f;font-size:1.5em">
+<h2>What is a p-value?</h2>
+<blockquote>
+<p>The <strong>p-value</strong> tells us the probability of observing the data that we did, assuming that the null hypothesis is true.</p>
+</blockquote>
+</section>
+<section id="section" class="slide level2" data-transition="none">
 <h2></h2>
-<div style="font-size:2.5em">
-<h3>
-<em>Outline</em>
-</h3>
+
+<img data-src="stat-550_presentation_files/figure-revealjs/unnamed-chunk-2-1.png" width="768" class="r-stretch"></section>
+<section id="section-1" class="slide level2" data-transition="none">
+<h2></h2>
+
+<img data-src="stat-550_presentation_files/figure-revealjs/unnamed-chunk-3-1.png" width="768" class="r-stretch"></section>
+<section id="section-2" class="slide level2" data-transition="none">
+<h2></h2>
+
+<img data-src="stat-550_presentation_files/figure-revealjs/unnamed-chunk-4-1.png" width="768" class="r-stretch"></section>
+<section id="section-3" class="slide level2" data-transition="none">
+<h2></h2>
+
+<img data-src="stat-550_presentation_files/figure-revealjs/unnamed-chunk-5-1.png" width="768" class="r-stretch"></section>
+<section id="in-summary-a-p-value" class="slide level2">
+<h2>In summary, a p-value</h2>
 <ul>
-<li>The lab quizzes are due Friday at 11:59pm, and the last attempt will be recorded (not the highest attempt!!)</li>
-<li>Please click submit after finishing the quiz. If quiz is left open, it will be auto-submitted by Canvas on Saturday (which is after the due date and may lead to a late penalty).</li>
+<li>Is between 0 and 1.</li>
+<li>Is use to reject or not reject the null hypothesis.</li>
 </ul>
+</section>
+<section id="section-4" class="slide level2">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="02_figs/p_values_2x.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+<p><span class="citation" data-cites="P:2024"><span>“P-<span>Values</span>”</span> (<a href="#/references" role="doc-biblioref" onclick="">n.d.</a>)</span></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="02_figs/significant-section.png" class="quarto-figure quarto-figure-center"> <span class="citation" data-cites="xS:2024">(<a href="#/references" role="doc-biblioref" onclick=""><strong>xS:2024?</strong></a>)</span></p>
+</div>
 </div>
 </section>
-<section id="section-1" class="slide level2" data-fullscreen="true">
-<h2></h2>
-<div style="font-size:2.5em">
-<h3>
-<em>Importance</em>
-</h3>
+<section id="why-is-it-important" class="slide level2">
+<h2>Why is it important?</h2>
 <ul>
-<li>Scatterplots</li>
-<li>Association</li>
-<li>Correlation</li>
-<li>Fitting a regression model</li>
-<li>Residual Analysis</li>
-<li>Removing data points</li>
+<li>Statistical significance and P values are widely used in scientific research to evaluate the strength of evidence.</li>
+<li>However, their interpretation is often misunderstood, leading to misconceptions and missteps in scientific inquiry.</li>
+<li>This presentation aims to shed light on the complexities of statistical significance and P values, and their implications in research.</li>
 </ul>
-</div>
 </section>
-<section id="section-2" class="slide level2" data-fullscreen="true">
+<section id="section-5" class="slide level2">
 <h2></h2>
-<div style="font-size:2.5em">
-<h3>
-<em>The errors</em>
-</h3>
+
+<img data-src="02_figs/Z_plot.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="section-6" class="slide level2">
+<h2></h2>
+
+<img data-src="02_figs/rsos140216f01.jpg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="citation" data-cites="Colquhoun:2014">Colquhoun (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span></p>
+</section>
+<section id="the-fallacy-of-statistical-significance" class="slide level2">
+<h2><strong>The Fallacy of Statistical Significance</strong></h2>
 <ul>
-<li>Make sure you are placing each variable in the right place. It applies to scatterplots, regression models, and residual analysis.</li>
+<li>Statistical significance does not necessarily imply clinical importance.</li>
+<li>Misinterpretation of non-significant findings can lead to erroneous conclusions.</li>
+<li>Inadequate sample sizes in clinical trials limit the power to detect real treatment effects.</li>
+<li>Examples and statistics highlight the consequences of relying solely on statistical significance.</li>
 </ul>
+</section>
+<section id="rethinking-the-role-of-p-values" class="slide level2">
+<h2><strong>Rethinking the Role of P Values</strong></h2>
+<ul>
+<li>The American Statistical Association (ASA) issued a statement addressing misuse of P values.</li>
+<li>P values alone cannot determine the truth or importance of research findings.</li>
+<li>Common misconceptions about P values and their limitations.</li>
+<li>Importance of transparent reporting and rigorous analysis in scientific research.</li>
+</ul>
+</section>
+<section id="addressing-missteps-in-scientific-inquiry" class="slide level2">
+<h2><strong>Addressing Missteps in Scientific Inquiry</strong></h2>
+<ul>
+<li>ASA’s recommendations emphasize responsible use of P values and transparent reporting.</li>
+<li>Need for critical thinking and careful interpretation of statistical evidence.</li>
+<li>Reactions from experts and perspectives on the ASA’s statement.</li>
+<li>Strategies for improving research practices and avoiding common pitfalls.</li>
+</ul>
+</section>
+<section id="moving-towards-a-more-rigorous-approach" class="slide level2">
+<h2><strong>Moving Towards a More Rigorous Approach</strong></h2>
+<ul>
+<li>Encouragement for researchers to adopt a nuanced and rigorous approach to statistical analysis.</li>
+<li>Importance of transparency, reproducibility, and open science in advancing scientific knowledge.</li>
+<li>Suggestions for improving research practices and fostering a culture of critical thinking.</li>
+</ul>
+</section>
+<section id="conclusion" class="slide level2">
+<h2><strong>Conclusion</strong></h2>
+<ul>
+<li>Summary of key takeaways: understanding limitations of statistical significance and P values.</li>
+<li>Call to action for researchers to embrace transparency, rigor, and critical thinking in their work.</li>
+<li>Emphasis on the collective responsibility to uphold the integrity of scientific research for the betterment of society.</li>
+</ul>
+</section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-AltmanBland:1995" class="csl-entry" role="listitem">
+Altman, Douglas G., and J. Martin Bland. 1995. <span>“Statistics Notes: <span>Absence</span> of Evidence Is Not Evidence of Absence.”</span> <em>BMJ</em> 311 (7003): 485. <a href="https://doi.org/10.1136/bmj.311.7003.485">https://doi.org/10.1136/bmj.311.7003.485</a>.
+</div>
+<div id="ref-Baker:2016" class="csl-entry" role="listitem">
+Baker, Monya. 2016. <span>“Statisticians Issue Warning over Misuse of <span>P</span> Values.”</span> <em>Nature</em> 531 (7593): 151–51. <a href="https://doi.org/10.1038/nature.2016.19503">https://doi.org/10.1038/nature.2016.19503</a>.
+</div>
+<div id="ref-Colquhoun:2014" class="csl-entry" role="listitem">
+Colquhoun, David. 2014. <span>“An Investigation of the False Discovery Rate and the Misinterpretation of p-Values.”</span> <em>Royal Society Open Science</em> 1 (3): 140216. <a href="https://doi.org/10.1098/rsos.140216">https://doi.org/10.1098/rsos.140216</a>.
+</div>
+<div id="ref-Harrell:2017" class="csl-entry" role="listitem">
+Harrell, Frank. 2017. <span>“A <span>Litany</span> of <span>Problems With</span> p-Values.”</span> <em>Statistical Thinking</em>. https://www.fharrell.com/post/pval-litany/.
+</div>
+<div id="ref-P:2024" class="csl-entry" role="listitem">
+<span>“P-<span>Values</span>.”</span> n.d. <em>Xkcd</em>. https://xkcd.com/1478/. Accessed March 15, 2024.
+</div>
+<div id="ref-WassersteinLazar:2016" class="csl-entry" role="listitem">
+Wasserstein, Ronald L., and Nicole A. Lazar. 2016. <span>“The <span>ASA Statement</span> on p-<span>Values</span>: <span>Context</span>, <span>Process</span>, and <span>Purpose</span>.”</span> <em>The American Statistician</em> 70 (2): 129–33. <a href="https://doi.org/10.1080/00031305.2016.1154108">https://doi.org/10.1080/00031305.2016.1154108</a>.
+</div>
 </div>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
@@ -433,7 +546,7 @@
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: false,
+        slideNumber: 'c',
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',
@@ -538,7 +651,7 @@
         previewLinks: false,
 
         // Transition style (none/fade/slide/convex/concave/zoom)
-        transition: 'slide',
+        transition: 'none',
 
         // Transition speed (default/fast/slow)
         transitionSpeed: 'default',
@@ -598,6 +711,44 @@
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
