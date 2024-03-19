@@ -65,8 +65,8 @@ Cites
 @WassersteinLazar:2016
 @
 
-------------------------------------------------------------------------
 ::: {style='color:#4f4f4f;font-size:1.5em'}
+
 ## What is a p-value?
 
 
