@@ -65,20 +65,26 @@ Cites
 
 ::: columns
 ::: {.column width="60%"}
--   Ronald Fisher introduced the P value in the 1920s.
--   He intended it simply as an informal way to judge whether worthy of a second look.
+-   **Ronald Fisher** introduced the p-value in the 1920s.
+-   He intended it simply as an informal way to judge whether **worthy of a second look**.
 - **Idea:** see if the results were consistent with what random chance might produce.
+
+:::{style='font-size:0.8em'}
+@Nuzzo:2014
+:::
 :::
 
 ::: {.column width="40%"}
 
-![](https://upload.wikimedia.org/wikipedia/commons/a/aa/Youngronaldfisher2.JPG){.absolute top=100 left=800 width="350"}
+:::{style='font-size:0.8em'}
+
+![](https://upload.wikimedia.org/wikipedia/commons/a/aa/Youngronaldfisher2.JPG){fig-align="center" width="350"}
+
+@iRF1:1913
+:::
 
 :::
 :::
-
-
-
 
 ## What is a p-value?
 
