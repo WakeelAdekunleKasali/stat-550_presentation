@@ -1,0 +1,65 @@
+---
+title: "<span style='color:#f6f6f6; font-size:100pt'>P-values</span>"
+author: "<span style='color:#f8f8f8; font-size:30pt'>Javier Mtz.-Rdz.</span>"
+format: 
+  revealjs:
+    width: 1200
+    slide-number: c/t
+    background-image: 08_styling/normal-background-1.png
+    parallax-background-size: 100% 100%
+    background-size: 100% 100%
+    background-position: 100% 100%
+    background-repeat: no-repeat
+    fontsize: 1.3em
+    css: ["08_styling/theme_jmr.css"]
+    transition: slide
+    background-transition: fade
+title-slide-attributes:
+    data-background-image: 08_styling/background.png
+    data-background-size: 100% 100%  
+
+---
+
+
+    
+
+## {fullscreen="true"}
+
+::: {style='font-size:2.5em'}
+<h3>*Outline*</h3>
+
+* The lab quizzes are due Friday at 11:59pm, and the last attempt will be recorded (not the highest attempt!!) 
+* Please click submit after finishing the quiz. If quiz is left open, it will be auto-submitted by Canvas on Saturday (which is after the due date and may lead to a late penalty).
+:::
+
+
+## {fullscreen="true"}
+
+::: {style='font-size:2.5em'}
+
+<h3>*Importance*</h3>
+
+* Scatterplots
+* Association
+* Correlation
+* Fitting a regression model
+* Residual Analysis
+* Removing data points
+
+:::
+
+## {fullscreen="true"}
+
+::: {style='font-size:2.5em'}
+
+<h3>*The errors*</h3>
+
+* Make sure you are placing each variable in the right place. It applies to scatterplots, regression models, and residual analysis. 
+
+
+
+:::
+
+
+
+
