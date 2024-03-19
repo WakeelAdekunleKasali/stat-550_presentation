@@ -96,7 +96,7 @@ Cites
 
 > The **p-value** tells us the probability of observing the data that we did, assuming that the null hypothesis is true.
 
-##  {transition="none"}
+## What is a p-value? 
 
 ```{r, dev.args=list(bg="transparent")}
 #| fig-height: 4.5
@@ -120,7 +120,11 @@ z <- tibble(Z = seq(-4, 4, 0.01), density = dnorm(Z))
   
 ```
 
-##  {transition="none"}
+
+
+
+
+## What is a p-value? 
 
 ```{r, dev.args=list(bg="transparent")}
 #| fig-height: 4.5
@@ -141,7 +145,11 @@ z <- tibble(Z = seq(-4, 4, 0.01), density = dnorm(Z))
   
 ```
 
-##  {transition="none"}
+
+
+
+
+## What is a p-value? 
 
 ```{r, dev.args=list(bg="transparent")}
 #| fig-height: 4.5
@@ -163,7 +171,7 @@ test_statistic <- 0.7
   
 ```
 
-##  {transition="none"}
+## What is a p-value? 
 
 ```{r, dev.args=list(bg="transparent")}
 #| fig-height: 4.5
@@ -185,7 +193,9 @@ test_statistic <- 0.95
   
 ```
 
-## In summary, a p-value
+
+
+## In summary, a p-value {visibility="hidden"}
 
 -   Is between 0 and 1.
 -   Is use to reject or not reject the null hypothesis.
