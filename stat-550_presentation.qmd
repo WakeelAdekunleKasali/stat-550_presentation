@@ -101,6 +101,7 @@ Cites
 ```{r, dev.args=list(bg="transparent")}
 #| fig-height: 4.5
 #| fig-width: 8
+#| fig-align: "center"
 #| dev: "png"
 
 q <- map_dbl(c(0.05, 0.025, 0.975, 0.95), qnorm)
@@ -129,6 +130,7 @@ z <- tibble(Z = seq(-4, 4, 0.01), density = dnorm(Z))
 ```{r, dev.args=list(bg="transparent")}
 #| fig-height: 4.5
 #| fig-width: 8
+#| fig-align: "center"
 #| dev: "png"
 
 
@@ -154,6 +156,7 @@ z <- tibble(Z = seq(-4, 4, 0.01), density = dnorm(Z))
 ```{r, dev.args=list(bg="transparent")}
 #| fig-height: 4.5
 #| fig-width: 8
+#| fig-align: "center"
 #| dev: "png"
 
 
@@ -176,6 +179,7 @@ test_statistic <- 0.7
 ```{r, dev.args=list(bg="transparent")}
 #| fig-height: 4.5
 #| fig-width: 8
+#| fig-align: "center"
 #| dev: "png"
 
 
@@ -195,6 +199,7 @@ test_statistic <- 0.95
 
 
 
+
 ## In summary, a p-value {visibility="hidden"}
 
 -   Is between 0 and 1.
@@ -204,15 +209,21 @@ test_statistic <- 0.95
 
 ::: columns
 ::: {.column width="50%"}
-![](02_figs/p_values_2x.png){fig-align="center"}
+![](02_figs/p_values_2x.png){fig-align="center" width="400"}
 
+:::{style='font-size:0.8em'}
 @P:2024
+:::
+
 :::
 
 ::: {.column width="50%"}
 ![](02_figs/significant-section.png){fig-align="center"}
 
+:::{style='font-size:0.8em'}
 @S:2024
+:::
+
 :::
 :::
 
@@ -230,7 +241,9 @@ test_statistic <- 0.95
 
 ![](02_figs/rsos140216f01.jpg){fig-align="center"}
 
+:::{style='font-size:0.8em'}
 @Colquhoun:2014
+:::
 
 ## **The Fallacy of Statistical Significance**
 
