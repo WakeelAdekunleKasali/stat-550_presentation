@@ -2,7 +2,6 @@
 title: "<span style='color:#f6f6f6; font-size:100pt'>P-values</span>"
 author: "<span style='color:#f8f8f8; font-size:30pt'>Javier Mtz.-Rdz.</span>"
 format: 
-  html: default
   revealjs:
     width: 1200
     background-image: 08_styling/normal-background-1.png
