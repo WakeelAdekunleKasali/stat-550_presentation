@@ -183,7 +183,8 @@ test_statistic <- 0.95
 
 ::: {.column width="50%"}
 ![](02_figs/significant-section.png){fig-align="center"}
-@xS:2024
+
+@S:2024
 
 :::
 
