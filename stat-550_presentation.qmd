@@ -26,7 +26,7 @@ title-slide-attributes:
 ## {fullscreen="true"}
 
 ::: {style='font-size:2.5em'}
-<h3>*Hello more*</h3>
+<h3>*Outline*</h3>
 
 * The lab quizzes are due Friday at 11:59pm, and the last attempt will be recorded (not the highest attempt!!) 
 * Please click submit after finishing the quiz. If quiz is left open, it will be auto-submitted by Canvas on Saturday (which is after the due date and may lead to a late penalty).
