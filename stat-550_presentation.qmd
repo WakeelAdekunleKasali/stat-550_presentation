@@ -59,32 +59,36 @@ options(scipen = 999)
 
 Cites
 
-@Baker:2016
-@Harrell:2017
-@AltmanBland:1995
-@WassersteinLazar:2016
-@
+@Baker:2016 @Harrell:2017 @AltmanBland:1995 @WassersteinLazar:2016 \@
+
+## What is a p-value? 
+
+::: columns
+::: {.column width="60%"}
+-   Ronald Fisher introduced the P value in the 1920s.
+-   He intended it simply as an informal way to judge whether worthy of a second look.
+- **Idea:** see if the results were consistent with what random chance might produce.
+:::
+
+::: {.column width="40%"}
+
+![](https://upload.wikimedia.org/wikipedia/commons/a/aa/Youngronaldfisher2.JPG){.absolute top=100 left=800 width="350"}
+
+:::
+:::
 
 
 
-## What is a p-value? {style='color:#4f4f4f;font-size:1.3em'}
 
-* Ronald Fisher introduced the P value in the 1920s.
-* He intended it simply as an informal way to judge whether worthy of a second look.
-* Idea: see if the results were consistent with what random chance might produce.
-
-  
 ## What is a p-value?
 
-* Idea: see if the results were consistent with what random chance might produce.
+- **Idea:** see if the results were consistent with what random chance might produce.
 
-  1. Set up a 'null hypothesis' that they wanted to disprove.
-  2. Assuming that this null hypothesis was in fact true.
-  3. Calculate the chances of getting results at least as extreme as what was actually observed.
+    1.  Set up a 'null hypothesis' ($H_0$) that they wanted to disprove.
+    2.  Assuming that this null hypothesis was in fact true.
+    3.  Calculate the chances of getting results at least as extreme as what was actually observed.
 
 > The **p-value** tells us the probability of observing the data that we did, assuming that the null hypothesis is true.
-
-
 
 ##  {transition="none"}
 
@@ -177,77 +181,75 @@ test_statistic <- 0.95
 
 ## In summary, a p-value
 
-* Is between 0 and 1. 
-* Is use to reject or not reject the null hypothesis. 
-
+-   Is between 0 and 1.
+-   Is use to reject or not reject the null hypothesis.
 
 ## 
 
-:::: {.columns}
-
+::: columns
 ::: {.column width="50%"}
 ![](02_figs/p_values_2x.png){fig-align="center"}
 
 @P:2024
-
 :::
 
 ::: {.column width="50%"}
 ![](02_figs/significant-section.png){fig-align="center"}
 
 @S:2024
-
 :::
-
-::::
-
-
+:::
 
 ## Why is it important?
 
-- Statistical significance and P values are widely used in scientific research to evaluate the strength of evidence.
-- However, their interpretation is often misunderstood, leading to misconceptions and missteps in scientific inquiry.
-- This presentation aims to shed light on the complexities of statistical significance and P values, and their implications in research.
+-   Statistical significance and P values are widely used in scientific research to evaluate the strength of evidence.
+-   However, their interpretation is often misunderstood, leading to misconceptions and missteps in scientific inquiry.
+-   This presentation aims to shed light on the complexities of statistical significance and P values, and their implications in research.
 
-##
+## 
 
 ![](02_figs/Z_plot.png){fig-align="center"}
 
-##
+## 
 
 ![](02_figs/rsos140216f01.jpg){fig-align="center"}
 
 @Colquhoun:2014
 
 ## **The Fallacy of Statistical Significance**
-- Statistical significance does not necessarily imply clinical importance.
-- Misinterpretation of non-significant findings can lead to erroneous conclusions.
-- Inadequate sample sizes in clinical trials limit the power to detect real treatment effects.
-- Examples and statistics highlight the consequences of relying solely on statistical significance.
+
+-   Statistical significance does not necessarily imply clinical importance.
+-   Misinterpretation of non-significant findings can lead to erroneous conclusions.
+-   Inadequate sample sizes in clinical trials limit the power to detect real treatment effects.
+-   Examples and statistics highlight the consequences of relying solely on statistical significance.
 
 ## **Rethinking the Role of P Values**
-- The American Statistical Association (ASA) issued a statement addressing misuse of P values.
-- P values alone cannot determine the truth or importance of research findings.
-- Common misconceptions about P values and their limitations.
-- Importance of transparent reporting and rigorous analysis in scientific research.
+
+-   The American Statistical Association (ASA) issued a statement addressing misuse of P values.
+-   P values alone cannot determine the truth or importance of research findings.
+-   Common misconceptions about P values and their limitations.
+-   Importance of transparent reporting and rigorous analysis in scientific research.
 
 ## **Addressing Missteps in Scientific Inquiry**
-- ASA's recommendations emphasize responsible use of P values and transparent reporting.
-- Need for critical thinking and careful interpretation of statistical evidence.
-- Reactions from experts and perspectives on the ASA's statement.
-- Strategies for improving research practices and avoiding common pitfalls.
+
+-   ASA's recommendations emphasize responsible use of P values and transparent reporting.
+-   Need for critical thinking and careful interpretation of statistical evidence.
+-   Reactions from experts and perspectives on the ASA's statement.
+-   Strategies for improving research practices and avoiding common pitfalls.
 
 ## **Moving Towards a More Rigorous Approach**
-- Encouragement for researchers to adopt a nuanced and rigorous approach to statistical analysis.
-- Importance of transparency, reproducibility, and open science in advancing scientific knowledge.
-- Suggestions for improving research practices and fostering a culture of critical thinking.
+
+-   Encouragement for researchers to adopt a nuanced and rigorous approach to statistical analysis.
+-   Importance of transparency, reproducibility, and open science in advancing scientific knowledge.
+-   Suggestions for improving research practices and fostering a culture of critical thinking.
 
 ## **Conclusion**
-- Summary of key takeaways: understanding limitations of statistical significance and P values.
-- Call to action for researchers to embrace transparency, rigor, and critical thinking in their work.
-- Emphasis on the collective responsibility to uphold the integrity of scientific research for the betterment of society.
+
+-   Summary of key takeaways: understanding limitations of statistical significance and P values.
+-   Call to action for researchers to embrace transparency, rigor, and critical thinking in their work.
+-   Emphasis on the collective responsibility to uphold the integrity of scientific research for the betterment of society.
 
 ## References
+
 ::: {#refs}
 :::
-
