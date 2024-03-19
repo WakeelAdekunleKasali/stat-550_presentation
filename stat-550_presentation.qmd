@@ -65,15 +65,26 @@ Cites
 @WassersteinLazar:2016
 @
 
-::: {style='color:#4f4f4f;font-size:1.5em'}
 
+
+## What is a p-value? {style='color:#4f4f4f;font-size:1.3em'}
+
+* Ronald Fisher introduced the P value in the 1920s.
+* He intended it simply as an informal way to judge whether worthy of a second look.
+* Idea: see if the results were consistent with what random chance might produce.
+
+  
 ## What is a p-value?
 
+* Idea: see if the results were consistent with what random chance might produce.
 
+  1. Set up a 'null hypothesis' that they wanted to disprove.
+  2. Assuming that this null hypothesis was in fact true.
+  3. Calculate the chances of getting results at least as extreme as what was actually observed.
 
 > The **p-value** tells us the probability of observing the data that we did, assuming that the null hypothesis is true.
 
-:::
+
 
 ##  {transition="none"}
 
