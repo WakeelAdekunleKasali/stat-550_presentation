@@ -1,6 +1,6 @@
 ---
-title: "<span style='color:#f6f6f6; font-size:100pt'>P-values:</span>"
-subtitle: "<span style='color:#f6f6f6; font-size:50pt'>Understanding Statistical Significance and Its Limitations</span>"
+title: "<span style='color:#f6f6f6; font-size:100pt'><br>P-values:</span>"
+subtitle: "<span style='color:#f6f6f6; font-size:30pt'>Altman, Douglas G., and J. Martin Bland. 1995. “Statistics Notes: Absence of Evidence Is Not Evidence of Absence.” BMJ 311 (7003): 485. <br><br> Baker, Monya. 2016. “Statisticians Issue Warning over Misuse of P Values.” Nature 531 (7593): 151–51. </span>"
 author: "<span style='color:#f10f10f10; font-size:30pt'>Javier Mtz.-Rdz.</span>"
 bibliography: 07_refs/p-value.bib
 format: 
@@ -470,8 +470,15 @@ On a 1-to-7 scale at 5.6, versus 5.5 for those who met offline.
 :::
 
 
+## Reporting non-significant findings 
+
+- **"Absence of evidence is not evidence of absence"** [@AltmanBland:1995].
+  - The lack of statistical significance of most of the individual trials led to a **long delay** before the true value is found.
+  - The **sample size** of controlled trials is generally inadequate, with a consequent lack of power to detect real, and clinically worthwhile, differences in treatment.
+  
 
 ## Reporting non-significant findings 
+
 
 ```{r, dev.args=list(bg="transparent")}
 #| fig-height: 4.5
@@ -479,14 +486,11 @@ On a 1-to-7 scale at 5.6, versus 5.5 for those who met offline.
 #| fig-align: "center"
 #| dev: "png"
 
-plot_acc_null 
+plot_acc_null2 
+
 ```
 
-## Reporting non-significant findings 
 
-- **"Absence of evidence is not evidence of absence"** [@AltmanBland:1995].
-  - The **sample size** of controlled trials is generally inadequate, with a consequent lack of power to detect real, and clinically worthwhile, differences in treatment.
-  - The lack of statistical significance of most of the individual trials led to a **long delay** before the true value is found.
 
 
 ## How big is the problem?
@@ -523,18 +527,28 @@ False positive probability = 9 / (9 + 12) = 43%
 :::
 
 
-## Conclusion:
+## Conclusion: {style='font-size:0.9em'}
 
-### Rethinking the Role of P Values
+**Rethinking the Role of P Values**
 
 - Avoid making scientific conclusions or policy decisions based solely on P-values [@Baker:2016].
 - You should weigh the evidence properly before drawing any conclusions (e.g. consider sample size).
 - P-values alone are not enough to determine the truth or importance of research findings.
-- It's crucial to ensure transparent reporting and rigorous analysis of scientific research.
+- It is crucial to ensure transparent reporting and rigorous analysis of scientific research.
 - We should question whether the absence of evidence is a valid justification for inaction [@AltmanBland:1995].
 
 
+## {fullscreen="true" background-image="08_styling/transition-1.png" background-size="100% 100%"}
+
+<br><br><br><br><br>
+
+::: {style='color:#EFF5F5;font-size:5em;text-align:left;vertical-align:middle' layout="[[1], [-1]]"}
+Thanks!
+:::
+
 ## Moving Towards a More Rigorous Approach
+
+Some new approaches:
 
 -  Second generation p-values [@BlumeGreevyWelty:2019]. 
 -  Effect size + p-value [@GoodmanSpruillKomaroff:2019]. 
