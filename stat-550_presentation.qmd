@@ -99,7 +99,7 @@ Cites
 
 ## What is a p-value? 
 
-Suppose we have a <span style='color:#808080'>size</span> $n$.
+Suppose we have a <span style='color:#808080'>sample</span> of size $n$.
 
 ```{r, dev.args=list(bg="transparent")}
 #| fig-height: 4.5
