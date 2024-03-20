@@ -366,11 +366,11 @@
 <div class="column" style="width:60%;">
 <ul>
 <li><strong>Ronald Fisher</strong> introduced the p-value in the 1920s.</li>
-<li>He intended it simply as an informal way to judge whether <strong>worthy of a second look</strong>.</li>
+<li>He originally intended it to be an informal method of determining whether a particular observation was <strong>worth of a second look</strong>.</li>
 <li><strong>Idea:</strong> see if the results were consistent with what random chance might produce.</li>
 </ul>
 <div style="font-size:0.8em">
-<p><span class="citation" data-cites="Nuzzo:2014">Nuzzo (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span></p>
+<p><span class="citation" data-cites="Nuzzo:2014">(<a href="#/references" role="doc-biblioref" onclick="">Nuzzo 2014</a>)</span></p>
 </div>
 </div><div class="column" style="width:40%;">
 <div style="font-size:0.8em">
@@ -400,32 +400,70 @@
 </section>
 <section id="what-is-a-p-value-2" class="slide level2">
 <h2>What is a p-value?</h2>
+<p>Suppose we have a <span style="color:#808080">size</span> <span class="math inline">\(n\)</span>.</p>
 
 <img data-src="stat-550_presentation_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" width="768"></section>
 <section id="what-is-a-p-value-3" class="slide level2">
 <h2>What is a p-value?</h2>
+<p>Based on that, we create our <span style="color:#808080">null model</span>.</p>
 
 <img data-src="stat-550_presentation_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" width="768"></section>
 <section id="what-is-a-p-value-4" class="slide level2">
 <h2>What is a p-value?</h2>
+<p>Based on that, we create our <span style="color:#808080">null model</span>.</p>
 
 <img data-src="stat-550_presentation_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" width="768"></section>
 <section id="what-is-a-p-value-5" class="slide level2">
 <h2>What is a p-value?</h2>
+<div style="text-align: center">
+<p><span style="color:#808080">Null model</span> | <span style="color:#FF483B">Significance level </span></p>
+</div>
 
 <img data-src="stat-550_presentation_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" width="768"></section>
+<section id="what-is-a-p-value-6" class="slide level2">
+<h2>What is a p-value?</h2>
+<div style="text-align: center">
+<p><span style="color:#808080">Null model</span> | <span style="color:#FF483B">Significance level </span> | <span style="color:#1E81A2">P-value</span></p>
+</div>
 
-<section id="section" class="slide level2">
-<h2></h2>
+<img data-src="stat-550_presentation_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" width="768"></section>
+<section id="what-is-a-p-value-7" class="slide level2">
+<h2>What is a p-value?</h2>
+<div style="text-align: center">
+<p><span style="color:#808080">Null model</span> | <span style="color:#FF483B">Significance level </span> | <span style="color:#1E81A2">P-value</span></p>
+</div>
+
+<img data-src="stat-550_presentation_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" width="768"></section>
+<section id="what-is-a-p-value-8" class="slide level2">
+<h2>What is a p-value?</h2>
+<p>When we increase the <span class="math inline">\(n\)</span>, the null model distribution becomes narrower.</p>
+
+<img data-src="stat-550_presentation_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" width="768"></section>
+<section id="what-is-a-p-value-9" class="slide level2">
+<h2>What is a p-value?</h2>
+
+<img data-src="02_figs/p_values_2x.png" class="quarto-figure quarto-figure-center r-stretch" width="400"><div class="{.absolutestyle='font-size:0.8em'}">
+<p><span class="citation" data-cites="P:2024">(<a href="#/references" role="doc-biblioref" onclick=""><span>“P-<span>Values</span>”</span> n.d.</a>)</span></p>
+</div>
+</section>
+<section id="the-fallacy-of-statistical-significance" class="slide level2">
+<h2>The Fallacy of Statistical Significance</h2>
+<ul>
+<li><p>The p-value was <strong>never meant to be used the way</strong> it is used today <span class="citation" data-cites="Nuzzo:2014">(<a href="#/references" role="doc-biblioref" onclick="">Nuzzo 2014</a>)</span>.</p></li>
+<li><p>P-values alone <strong>cannot determine the truth or importance</strong> of research findings <span class="citation" data-cites="Baker:2016">(<a href="#/references" role="doc-biblioref" onclick="">Baker 2016</a>)</span>.</p>
+<ul>
+<li>Just by chance, many conclusions will be wrong.</li>
+</ul></li>
+</ul>
+</section>
+<section id="the-fallacy-of-statistical-significance-1" class="slide level2">
+<h2>The Fallacy of Statistical Significance</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="02_figs/p_values_2x.png" class="quarto-figure quarto-figure-center" width="400"></p>
+<p><img data-src="02_figs/significant-section-1.png" class="quarto-figure quarto-figure-center" width="500"></p>
 </figure>
-</div>
-<div style="font-size:0.8em">
-<p><span class="citation" data-cites="P:2024"><span>“P-<span>Values</span>”</span> (<a href="#/references" role="doc-biblioref" onclick="">n.d.</a>)</span></p>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
@@ -434,59 +472,155 @@
 </figure>
 </div>
 <div style="font-size:0.8em">
-<p><span class="citation" data-cites="S:2024"><span>“Significant”</span> (<a href="#/references" role="doc-biblioref" onclick="">n.d.</a>)</span></p>
+<p><span class="citation" data-cites="S:2024">(<a href="#/references" role="doc-biblioref" onclick=""><span>“Significant”</span> n.d.</a>)</span></p>
 </div>
 </div>
 </div>
 </section>
-<section id="why-is-it-important" class="slide level2">
-<h2>Why is it important?</h2>
+<section id="the-fallacy-of-statistical-significance-2" class="slide level2">
+<h2>The Fallacy of Statistical Significance</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="02_figs/chocolate-1.jpg" class="quarto-figure quarto-figure-center" width="500"></p>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="02_figs/chocolate-2.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+<div style="font-size:0.8em">
+<p><span class="citation" data-cites="Bohannon:2015">(<a href="#/references" role="doc-biblioref" onclick="">Bohannon 2015</a>)</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="the-fallacy-of-statistical-significance-3" class="slide level2">
+<h2>The Fallacy of Statistical Significance</h2>
 <ul>
-<li>Statistical significance and P values are widely used in scientific research to evaluate the strength of evidence.</li>
-<li>However, their interpretation is often misunderstood, leading to misconceptions and missteps in scientific inquiry.</li>
-<li>This presentation aims to shed light on the complexities of statistical significance and P values, and their implications in research.</li>
+<li><p>The p-value was <strong>never meant to be used the way</strong> it is used today <span class="citation" data-cites="Nuzzo:2014">(<a href="#/references" role="doc-biblioref" onclick="">Nuzzo 2014</a>)</span>.</p></li>
+<li><p>P-values alone <strong>cannot determine the truth or importance</strong> of research findings <span class="citation" data-cites="Baker:2016">(<a href="#/references" role="doc-biblioref" onclick="">Baker 2016</a>)</span>.</p>
+<ul>
+<li>Just by chance, many conclusions will be wrong.</li>
+<li><strong>P-hacking</strong> (also data dredging or data snooping). It is trying multiple things until you get the desired p-value.</li>
+</ul></li>
 </ul>
 </section>
-<section id="section-1" class="slide level2">
-<h2></h2>
-
-<img data-src="02_figs/Z_plot.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="section-2" class="slide level2">
-<h2></h2>
-
-<img data-src="02_figs/rsos140216f01.jpg" class="quarto-figure quarto-figure-center r-stretch"><div style="font-size:0.8em">
-<p><span class="citation" data-cites="Colquhoun:2014">Colquhoun (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span></p>
+<section id="the-fallacy-of-statistical-significance-4" class="slide level2">
+<h2>The Fallacy of Statistical Significance</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="02_figs/p-hackin-1.png" class="quarto-figure quarto-figure-center" width="500"></p>
+</figure>
+</div>
+<div style="font-size:0.8em">
+<p><span class="citation" data-cites="StefanSchonbrodt:2023">(<a href="#/references" role="doc-biblioref" onclick="">Stefan and Schönbrodt 2023</a>)</span></p>
+</div>
+</div><div class="column" style="width:60%;">
+<p align="center">
+<iframe width="600" height="500" src="https://projects.fivethirtyeight.com/p-hacking/index.html" sandbox="allow-forms allow-scripts">
+</iframe>
+</p>
+<div style="font-size:0.8em">
+<p><span class="citation" data-cites="Aschwanden:2015">(<a href="#/references" role="doc-biblioref" onclick="">Aschwanden 2015</a>)</span></p>
+</div>
+</div>
 </div>
 </section>
-<section id="the-fallacy-of-statistical-significance" class="slide level2">
-<h2><strong>The Fallacy of Statistical Significance</strong></h2>
+<section id="the-fallacy-of-statistical-significance-5" class="slide level2">
+<h2>The Fallacy of Statistical Significance</h2>
 <ul>
-<li>Statistical significance does not necessarily imply clinical importance.</li>
-<li>Misinterpretation of non-significant findings can lead to erroneous conclusions.</li>
-<li>Inadequate sample sizes in clinical trials limit the power to detect real treatment effects.</li>
-<li>Examples and statistics highlight the consequences of relying solely on statistical significance.</li>
+<li><p>The p-value was <strong>never meant to be used the way</strong> it is used today <span class="citation" data-cites="Nuzzo:2014">(<a href="#/references" role="doc-biblioref" onclick="">Nuzzo 2014</a>)</span>.</p></li>
+<li><p>P-values alone <strong>cannot determine the truth or importance</strong> of research findings <span class="citation" data-cites="Baker:2016">(<a href="#/references" role="doc-biblioref" onclick="">Baker 2016</a>)</span>.</p>
+<ul>
+<li>Just by chance, many conclusions will be wrong.</li>
+<li><strong>P-hacking</strong>. It is trying multiple things until you get the desired p-value.</li>
+</ul></li>
+<li><p>Tendency to deflect attention from the actual <strong>size of an effect</strong> <span class="citation" data-cites="Nuzzo:2014">(<a href="#/references" role="doc-biblioref" onclick="">Nuzzo 2014</a>)</span>.</p></li>
 </ul>
+</section>
+<section id="the-fallacy-of-statistical-significance-6" class="slide level2">
+<h2>The Fallacy of Statistical Significance</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="02_figs/small-diff-1.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+<div style="font-size:0.8em">
+<p><span class="citation" data-cites="CacioppoCacioppoGonzaga:2013">Cacioppo et al. (<a href="#/references" role="doc-biblioref" onclick="">2013</a>)</span></p>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="02_figs/small-diff.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+<p>On a 1-to-7 scale at 5.6, versus 5.5 for those who met offline.</p>
+<div style="font-size:0.8em">
+<p><span class="citation" data-cites="Nuzzo:2013">Nuzzo (<a href="#/references" role="doc-biblioref" onclick="">2013</a>)</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="reporting-non-significant-findings" class="slide level2">
+<h2>Reporting non-significant findings</h2>
+
+<img data-src="stat-550_presentation_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" width="768"></section>
+<section id="reporting-non-significant-findings-1" class="slide level2">
+<h2>Reporting non-significant findings</h2>
+<ul>
+<li><strong>“Absence of evidence is not evidence of absence”</strong> <span class="citation" data-cites="AltmanBland:1995">(<a href="#/references" role="doc-biblioref" onclick="">Altman and Bland 1995</a>)</span>.
+<ul>
+<li>The <strong>sample size</strong> of controlled trials is generally inadequate, with a consequent lack of power to detect real, and clinically worthwhile, differences in treatment.</li>
+<li>The lack of statistical significance of most of the individual trials led to a <strong>long delay</strong> before the true value is found.</li>
+</ul></li>
+</ul>
+</section>
+<section id="how-big-is-the-problem" class="slide level2">
+<h2>How big is the problem?</h2>
+<div class="columns">
+<div class="column" style="width:35%;">
+<ul>
+<li>Beside the problems, it is <strong>one of the most influential metrics to determine whether a result is published</strong> in a scientific journal.</li>
+</ul>
+</div><div class="column" style="width:65%;">
+<div style="text-align: center" width="300">
+<p>Z-values extracted from confidence intervals in Medline between 1976 and 2019</p>
+</div>
+<p><img data-src="02_figs/Z_plot.png" class="quarto-figure quarto-figure-center" width="650">.</p>
+<div style="font-size:0.8em">
+<p><span class="citation" data-cites="Barnett:2022">(<a href="#/references" role="doc-biblioref" onclick="">Barnett 2022</a>)</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="how-big-is-the-problem-1" class="slide level2">
+<h2>How big is the problem?</h2>
+<p>False positive probability = 9 / (9 + 12) = 43%</p>
+
+<img data-src="https://raw.githubusercontent.com/agbarnett/talks/main/TRI/figures/pval_journey4.jpg" class="quarto-figure quarto-figure-center r-stretch"><div style="font-size:0.8em">
+<p><span class="citation" data-cites="Colquhoun:2014 Barnett:2022">(<a href="#/references" role="doc-biblioref" onclick="">Colquhoun 2014</a>; <a href="#/references" role="doc-biblioref" onclick="">Barnett 2022</a>)</span></p>
+</div>
 </section>
 <section id="rethinking-the-role-of-p-values" class="slide level2">
-<h2><strong>Rethinking the Role of P Values</strong></h2>
+<h2>Rethinking the Role of P Values</h2>
 <ul>
-<li>The American Statistical Association (ASA) issued a statement addressing misuse of P values.</li>
-<li>P values alone cannot determine the truth or importance of research findings.</li>
-<li>Common misconceptions about P values and their limitations.</li>
-<li>Importance of transparent reporting and rigorous analysis in scientific research.</li>
-</ul>
-</section>
-<section id="addressing-missteps-in-scientific-inquiry" class="slide level2">
-<h2><strong>Addressing Missteps in Scientific Inquiry</strong></h2>
-<ul>
-<li>ASA’s recommendations emphasize responsible use of P values and transparent reporting.</li>
-<li>Need for critical thinking and careful interpretation of statistical evidence.</li>
-<li>Reactions from experts and perspectives on the ASA’s statement.</li>
-<li>Strategies for improving research practices and avoiding common pitfalls.</li>
+<li>Avoid making scientific conclusions or policy decisions based solely on P-values <span class="citation" data-cites="Baker:2016">(<a href="#/references" role="doc-biblioref" onclick="">Baker 2016</a>)</span>.</li>
+<li>You should weigh the evidence properly before drawing any conclusions (e.g.&nbsp;consider sample size).</li>
+<li>P-values alone are not enough to determine the truth or importance of research findings.</li>
+<li>It’s crucial to ensure transparent reporting and rigorous analysis of scientific research.</li>
+<li>We should question whether the absence of evidence is a valid justification for inaction <span class="citation" data-cites="AltmanBland:1995">(<a href="#/references" role="doc-biblioref" onclick="">Altman and Bland 1995</a>)</span>.</li>
 </ul>
 </section>
 <section id="moving-towards-a-more-rigorous-approach" class="slide level2">
-<h2><strong>Moving Towards a More Rigorous Approach</strong></h2>
+<h2>Moving Towards a More Rigorous Approach</h2>
 <ul>
 <li>Encouragement for researchers to adopt a nuanced and rigorous approach to statistical analysis.</li>
 <li>Importance of transparency, reproducibility, and open science in advancing scientific knowledge.</li>
@@ -494,11 +628,15 @@
 </ul>
 </section>
 <section id="conclusion" class="slide level2">
-<h2><strong>Conclusion</strong></h2>
+<h2>Conclusion</h2>
+<p>Here are some important recommendations to keep in mind with regards to scientific research:</p>
 <ul>
-<li>Summary of key takeaways: understanding limitations of statistical significance and P values.</li>
-<li>Call to action for researchers to embrace transparency, rigor, and critical thinking in their work.</li>
-<li>Emphasis on the collective responsibility to uphold the integrity of scientific research for the betterment of society.</li>
+<li>Avoid making scientific conclusions or policy decisions based solely on P-values <span class="citation" data-cites="Baker:2016">(<a href="#/references" role="doc-biblioref" onclick="">Baker 2016</a>)</span>.</li>
+<li>You should weigh the evidence properly before drawing any conclusions.</li>
+<li>P-values alone are not enough to determine the truth or importance of research findings.</li>
+<li>It’s crucial to ensure transparent reporting and rigorous analysis of scientific research.</li>
+<li>We should question whether the absence of evidence is a valid justification for inaction <span class="citation" data-cites="AltmanBland:1995">(<a href="#/references" role="doc-biblioref" onclick="">Altman and Bland 1995</a>)</span>.</li>
+<li>Always consider other factors of the study such as sample size.</li>
 </ul>
 </section>
 <section id="references" class="slide level2 smaller scrollable">
@@ -510,8 +648,20 @@ Altman, Douglas G., and J. Martin Bland. 1995. <span>“Statistics Notes: <span>
 <div id="ref-iRF1:1913" class="csl-entry" role="listitem">
 <span>“An Image of <span>Ronald Fisher</span> in 1913.”</span> 1913. <em>Wikipedia</em>. https://commons.wikimedia.org/wiki/File:Youngronaldfisher2.JPG.
 </div>
+<div id="ref-Aschwanden:2015" class="csl-entry" role="listitem">
+Aschwanden, Christie. 2015. <span>“Science <span>Isn</span>’t <span>Broken</span>.”</span> <em>FiveThirtyEight</em>.
+</div>
 <div id="ref-Baker:2016" class="csl-entry" role="listitem">
 Baker, Monya. 2016. <span>“Statisticians Issue Warning over Misuse of <span>P</span> Values.”</span> <em>Nature</em> 531 (7593): 151–51. <a href="https://doi.org/10.1038/nature.2016.19503">https://doi.org/10.1038/nature.2016.19503</a>.
+</div>
+<div id="ref-Barnett:2022" class="csl-entry" role="listitem">
+Barnett, Adrian. 2022. <span>“Bad Statistics in Medical Research.”</span>
+</div>
+<div id="ref-Bohannon:2015" class="csl-entry" role="listitem">
+Bohannon, John. 2015. <span>“I <span>Fooled Millions Into Thinking Chocolate Helps Weight Loss</span>. <span>Here</span>’s <span>How</span>.”</span> <em>Gizmodo</em>. https://gizmodo.com/i-fooled-millions-into-thinking-chocolate-helps-weight-1707251800.
+</div>
+<div id="ref-CacioppoCacioppoGonzaga:2013" class="csl-entry" role="listitem">
+Cacioppo, John T., Stephanie Cacioppo, Gian C. Gonzaga, Elizabeth L. Ogburn, and Tyler J. VanderWeele. 2013. <span>“Marital Satisfaction and Break-Ups Differ Across on-Line and Off-Line Meeting Venues.”</span> <em>Proceedings of the National Academy of Sciences</em> 110 (25): 10135–40. <a href="https://doi.org/10.1073/pnas.1222447110">https://doi.org/10.1073/pnas.1222447110</a>.
 </div>
 <div id="ref-Colquhoun:2014" class="csl-entry" role="listitem">
 Colquhoun, David. 2014. <span>“An Investigation of the False Discovery Rate and the Misinterpretation of p-Values.”</span> <em>Royal Society Open Science</em> 1 (3): 140216. <a href="https://doi.org/10.1098/rsos.140216">https://doi.org/10.1098/rsos.140216</a>.
@@ -519,8 +669,14 @@ Colquhoun, David. 2014. <span>“An Investigation of the False Discovery Rate an
 <div id="ref-Harrell:2017" class="csl-entry" role="listitem">
 Harrell, Frank. 2017. <span>“A <span>Litany</span> of <span>Problems With</span> p-Values.”</span> <em>Statistical Thinking</em>. https://www.fharrell.com/post/pval-litany/.
 </div>
+<div id="ref-LeekPeng:2015" class="csl-entry" role="listitem">
+Leek, Jeffrey T., and Roger D. Peng. 2015. <span>“Statistics: <span>P</span> Values Are Just the Tip of the Iceberg.”</span> <em>Nature</em> 520 (7549): 612–12. <a href="https://doi.org/10.1038/520612a">https://doi.org/10.1038/520612a</a>.
+</div>
+<div id="ref-Nuzzo:2013" class="csl-entry" role="listitem">
+Nuzzo, Regina. 2013. <span>“Online Daters Do Better in the Marriage Stakes.”</span> <em>Nature</em>, June. <a href="https://doi.org/10.1038/nature.2013.13120">https://doi.org/10.1038/nature.2013.13120</a>.
+</div>
 <div id="ref-Nuzzo:2014" class="csl-entry" role="listitem">
-Nuzzo, Regina. 2014. <span>“Scientific Method: <span>Statistical</span> Errors.”</span> <em>Nature</em> 506 (7487): 150–52. <a href="https://doi.org/10.1038/506150a">https://doi.org/10.1038/506150a</a>.
+———. 2014. <span>“Scientific Method: <span>Statistical</span> Errors.”</span> <em>Nature</em> 506 (7487): 150–52. <a href="https://doi.org/10.1038/506150a">https://doi.org/10.1038/506150a</a>.
 </div>
 <div id="ref-P:2024" class="csl-entry" role="listitem">
 <span>“P-<span>Values</span>.”</span> n.d. <em>Xkcd</em>. https://xkcd.com/1478/. Accessed March 15, 2024.
@@ -528,10 +684,25 @@ Nuzzo, Regina. 2014. <span>“Scientific Method: <span>Statistical</span> Errors
 <div id="ref-S:2024" class="csl-entry" role="listitem">
 <span>“Significant.”</span> n.d. <em>Xkcd</em>. https://xkcd.com/882/. Accessed March 15, 2024.
 </div>
+<div id="ref-StefanSchonbrodt:2023" class="csl-entry" role="listitem">
+Stefan, Angelika M., and Felix D. Schönbrodt. 2023. <span>“Big Little Lies: A Compendium and Simulation of p-Hacking Strategies.”</span> <em>Royal Society Open Science</em> 10 (2): 220346. <a href="https://doi.org/10.1098/rsos.220346">https://doi.org/10.1098/rsos.220346</a>.
+</div>
 <div id="ref-WassersteinLazar:2016" class="csl-entry" role="listitem">
 Wasserstein, Ronald L., and Nicole A. Lazar. 2016. <span>“The <span>ASA Statement</span> on p-<span>Values</span>: <span>Context</span>, <span>Process</span>, and <span>Purpose</span>.”</span> <em>The American Statistician</em> 70 (2): 129–33. <a href="https://doi.org/10.1080/00031305.2016.1154108">https://doi.org/10.1080/00031305.2016.1154108</a>.
 </div>
 </div>
+</section>
+<section id="rethinking-the-role-of-p-values-1" class="slide level2" style="font-size:0.9em">
+<h2>Rethinking the Role of P Values</h2>
+<p>A little of context:</p>
+<ul>
+<li>[Early 1900’s ] Neyman vs.&nbsp;Fisher.</li>
+<li>[1995] <span class="citation" data-cites="AltmanBland:1995">Altman and Bland (<a href="#/references" role="doc-biblioref" onclick="">1995</a>)</span>’s critic to the evaluation of non-significant findings.</li>
+<li>[2014] <span class="citation" data-cites="Nuzzo:2014">Nuzzo (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span>’s critic to the use of p-values and quantitative methodology.</li>
+<li>[2015] <span class="citation" data-cites="LeekPeng:2015">Leek and Peng (<a href="#/references" role="doc-biblioref" onclick="">2015</a>)</span>’s critic to the use of p-values and quantitative methodology.</li>
+<li>[2015] Ban of p-values by Basic and Applied Social Psychology (BASP).</li>
+<li>[2016] <em>The ASA’s Statement on p-Values</em> by <span class="citation" data-cites="WassersteinLazar:2016">Wasserstein and Lazar (<a href="#/references" role="doc-biblioref" onclick="">2016</a>)</span>.</li>
+</ul>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 

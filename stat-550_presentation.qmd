@@ -27,7 +27,8 @@ title-slide-attributes:
 ## Packages to use ----
 pacman::p_load(tidyverse, janitor, writexl, 
               readxl, scales, mytidyfunctions, 
-              presupuestoR, ggpattern)
+              presupuestoR, ggdist, 
+              distributional)
 
 ## Set theme ------
 theme_set(theme_jmr(text = element_text(family = "Lato",
@@ -66,11 +67,11 @@ Cites
 ::: columns
 ::: {.column width="60%"}
 -   **Ronald Fisher** introduced the p-value in the 1920s.
--   He intended it simply as an informal way to judge whether **worthy of a second look**.
+-   He originally intended it to be an informal method of determining whether a particular observation was **worth of a second look**.
 - **Idea:** see if the results were consistent with what random chance might produce.
 
 :::{style='font-size:0.8em'}
-@Nuzzo:2014
+[@Nuzzo:2014]
 :::
 :::
 
@@ -98,6 +99,85 @@ Cites
 
 ## What is a p-value? 
 
+Suppose we have a <span style='color:#808080'>size</span> $n$.
+
+```{r, dev.args=list(bg="transparent")}
+#| fig-height: 4.5
+#| fig-width: 8
+#| fig-align: "center"
+#| dev: "png"
+
+test_statistic <- 0.95
+mu1 <- qnorm(test_statistic)
+
+
+dist_df = tibble(
+  dist = c(dist_normal(mu = mu1,sd = 1)),
+  dist_name = format(dist)
+)
+
+
+
+(
+  plot0 <- ggplot() +
+  stat_dots(data = dist_df,
+            aes(xdist = dist),
+            n = 500,
+            smooth = smooth_discrete(kernel = "ep"),
+            alpha = 0.5) + 
+    ylab("Count") + 
+    xlab(" ") + 
+    scale_y_continuous(breaks=NULL) +
+    scale_x_continuous(breaks = 0+mu1, 
+                       labels = expression(mu),
+                       limits = c(mu1-4, mu1+4)) +
+    ggtitle(expression(paste(H[0], ": ", mu == mu[0], " vs ",
+                             H[1], ": ", mu > mu[0])))
+)
+
+  
+```
+
+## What is a p-value? 
+
+Based on that, we create our <span style='color:#808080'>null model</span>.
+
+```{r, dev.args=list(bg="transparent")}
+#| fig-height: 4.5
+#| fig-width: 8
+#| fig-align: "center"
+#| dev: "png"
+
+q <- map_dbl(c(0.05, 0.025, 0.975, 0.95), qnorm)
+z <- tibble(Z = seq(-4, 4, 0.01), density = dnorm(Z)*2.3)
+
+(
+  plot <- ggplot(z) + 
+    stat_dots(data = dist_df,
+            aes(xdist = dist),
+            alpha = 0.5) +
+    geom_area(aes(Z, density),
+              linewidth = 2,
+              color = "black",
+              fill = "grey",
+              alpha = 0.2) + 
+    ylab("Density") + 
+    xlab(" ") + 
+    scale_y_continuous(breaks = NULL) +
+    scale_x_continuous(breaks = c(0, mu1), 
+                       labels = c(expression(mu[0]),
+                                  expression(mu)),
+                       limits = c(-4, 4)) +
+    ggtitle(expression(paste(H[0], ": ", mu == mu[0], " vs ",
+                             H[1], ": ", mu > mu[0]))) 
+)
+  
+```
+
+## What is a p-value? 
+
+Based on that, we create our <span style='color:#808080'>null model</span>.
+
 ```{r, dev.args=list(bg="transparent")}
 #| fig-height: 4.5
 #| fig-width: 8
@@ -115,6 +195,11 @@ z <- tibble(Z = seq(-4, 4, 0.01), density = dnorm(Z))
               fill = "grey",
               alpha = 0.2) + 
     ylab("Density") + 
+    xlab(" ") + 
+    scale_y_continuous(breaks = NULL) +
+    scale_x_continuous(breaks = 0, 
+                       labels = expression(mu[0]),
+                       limits = c(-4, 4)) +
     ggtitle(expression(paste(H[0], ": ", mu == mu[0], " vs ",
                              H[1], ": ", mu > mu[0]))) 
 )
@@ -126,6 +211,9 @@ z <- tibble(Z = seq(-4, 4, 0.01), density = dnorm(Z))
 
 
 ## What is a p-value? 
+::: {style="text-align: center"}
+<span style='color:#808080'>Null model</span> | <span style='color:#FF483B'>Significance level </span>
+:::
 
 ```{r, dev.args=list(bg="transparent")}
 #| fig-height: 4.5
@@ -133,48 +221,30 @@ z <- tibble(Z = seq(-4, 4, 0.01), density = dnorm(Z))
 #| fig-align: "center"
 #| dev: "png"
 
+cv <- 0.9
+
+q_cv <- qnorm(cv)
 
 (plot <- plot +
-    geom_segment(aes(x = qnorm(0.9), xend= qnorm(0.9), 
-                     y = 0, yend=dnorm(qnorm(0.9))),
+    geom_segment(aes(x = q_cv, xend= q_cv, 
+                     y = 0, yend=dnorm(q_cv)),
                  colour="#FF483B", linetype = 'dashed') +
-    geom_ribbon(z %>% filter(Z > qnorm(0.9)),
+    geom_ribbon(z %>% filter(Z > q_cv),
                 mapping = aes(x = Z, ymax = density, ymin = 0),
                 alpha = 0.3, fill = "#FF483B") + 
-    scale_x_continuous(labels = expression(q[1-alpha]),
-                       breaks = c(qnorm(0.9))) 
+    scale_x_continuous(labels = c(expression(mu[0]),
+                                  expression(q[1-alpha])),
+                       breaks = c(0, q_cv)) 
 )
   
 ```
 
 
 
-
-
 ## What is a p-value? 
-
-```{r, dev.args=list(bg="transparent")}
-#| fig-height: 4.5
-#| fig-width: 8
-#| fig-align: "center"
-#| dev: "png"
-
-
-test_statistic <- 0.7
-
-(plot_acc_null <- plot +
-    geom_segment(aes(x = qnorm(test_statistic), xend= qnorm(test_statistic), 
-                     y = 0, yend=dnorm(qnorm(test_statistic))),
-                 colour="#1E81A2",
-                 linetype = 'dashed') +
-    geom_ribbon(z %>% filter(Z > qnorm(test_statistic)),
-                mapping = aes(x = Z, ymax = density, ymin = 0),
-                alpha = 0.3, fill = "#1E81A2") 
-)
-  
-```
-
-## What is a p-value? 
+::: {style="text-align: center"}
+<span style='color:#808080'>Null model</span> | <span style='color:#FF483B'>Significance level </span> | <span style='color:#1E81A2'>P-value</span>
+:::
 
 ```{r, dev.args=list(bg="transparent")}
 #| fig-height: 4.5
@@ -192,93 +262,309 @@ test_statistic <- 0.95
                  linetype = 'dashed') +
     geom_ribbon(z %>% filter(Z > qnorm(test_statistic)),
                 mapping = aes(x = Z, ymax = density, ymin = 0),
-                alpha = 0.3, fill = "#1E81A2") 
+                alpha = 0.3, fill = "#1E81A2") +
+    scale_x_continuous(labels = c(expression(mu[0]),
+                                  expression(mu),
+                                  expression(q[1-alpha])),
+                       breaks = c(0, 
+                                  qnorm(test_statistic),
+                                  qnorm(0.9))) 
 )
   
 ```
 
 
+## What is a p-value? 
+::: {style="text-align: center"}
+<span style='color:#808080'>Null model</span> | <span style='color:#FF483B'>Significance level </span> | <span style='color:#1E81A2'>P-value</span>
+:::
+```{r, dev.args=list(bg="transparent")}
+#| fig-height: 4.5
+#| fig-width: 8
+#| fig-align: "center"
+#| dev: "png"
 
 
-## In summary, a p-value {visibility="hidden"}
+test_statistic <- 0.8
 
--   Is between 0 and 1.
--   Is use to reject or not reject the null hypothesis.
+(plot_acc_null <- plot +
+    geom_segment(aes(x = qnorm(test_statistic), xend= qnorm(test_statistic), 
+                     y = 0, yend=dnorm(qnorm(test_statistic))),
+                 colour="#1E81A2",
+                 linetype = 'dashed') +
+    geom_ribbon(z %>% filter(Z > qnorm(test_statistic)),
+                mapping = aes(x = Z, ymax = density, ymin = 0),
+                alpha = 0.3, fill = "#1E81A2") +
+    scale_x_continuous(labels = c(expression(mu[0]),
+                                  expression(mu),
+                                  expression(q[1-alpha])),
+                       breaks = c(0, 
+                                  qnorm(test_statistic),
+                                  qnorm(0.9))) 
+)
+  
+```
 
-## 
+
+## What is a p-value? 
+When we increase the $n$, the null model distribution becomes narrower.
+```{r, dev.args=list(bg="transparent")}
+#| fig-height: 4.5
+#| fig-width: 8
+#| fig-align: "center"
+#| dev: "png"
+
+cv2 <- 0.9
+
+q_cv2 <- qnorm(cv2, 0, 0.5)
+
+q2 <- map_dbl(c(0.05, 0.025, 0.975, 0.95), qnorm, 0, 0.5)
+z2 <- tibble(Z = seq(-4, 4, 0.01), density = dnorm(Z, 0, 0.5))
+
+
+(plot_acc_null2 <- plot_acc_null +
+    geom_area(data = z2,
+              aes(Z, density),
+              linewidth = 2,
+              linetype = "dashed",
+              color = "black",
+              fill = "grey",
+              alpha = 0.2) + 
+    geom_segment(aes(x = q_cv2, xend= q_cv2, 
+                     y = 0, yend=dnorm(q_cv2, 0, 0.5)),
+                 colour="#FF483B", linetype = 'dashed') +
+    geom_ribbon(z2 %>% filter(Z > q_cv2),
+                mapping = aes(x = Z, ymax = density, ymin = 0),
+                alpha = 0.3, fill = "#FF483B") + 
+    scale_x_continuous(labels = c(expression(mu[0]),
+                                  expression(q[1-alpha])),
+                       breaks = c(0, q_cv2)) 
+)
+
+# (plot_acc_null2 <- plot_acc_null)
+  
+```
+
+## What is a p-value? 
+
+![](02_figs/p_values_2x.png){fig-align="center"  width="400"}
+
+:::{.absolutestyle='font-size:0.8em'}
+[@P:2024]
+:::
+
+## The Fallacy of Statistical Significance
+- The p-value was **never meant to be used the way** it is used today [@Nuzzo:2014].
+
+- P-values alone **cannot determine the truth or importance** of research findings [@Baker:2016].
+  - Just by chance, many conclusions will be wrong. 
+
+## The Fallacy of Statistical Significance
 
 ::: columns
 ::: {.column width="50%"}
-![](02_figs/p_values_2x.png){fig-align="center" width="400"}
 
-:::{style='font-size:0.8em'}
-@P:2024
-:::
+![](02_figs/significant-section-1.png){fig-align="center" width="500"}
 
 :::
-
 ::: {.column width="50%"}
+
 ![](02_figs/significant-section.png){fig-align="center"}
 
 :::{style='font-size:0.8em'}
-@S:2024
+[@S:2024]
 :::
 
 :::
 :::
 
-## Why is it important?
+## The Fallacy of Statistical Significance
 
--   Statistical significance and P values are widely used in scientific research to evaluate the strength of evidence.
--   However, their interpretation is often misunderstood, leading to misconceptions and missteps in scientific inquiry.
--   This presentation aims to shed light on the complexities of statistical significance and P values, and their implications in research.
+::: columns
+::: {.column width="50%"}
 
-## 
+![](02_figs/chocolate-1.jpg){fig-align="center" width="500"}
 
-![](02_figs/Z_plot.png){fig-align="center"}
+:::
+::: {.column width="50%"}
 
-## 
-
-![](02_figs/rsos140216f01.jpg){fig-align="center"}
+![](02_figs/chocolate-2.png){fig-align="center"}
 
 :::{style='font-size:0.8em'}
-@Colquhoun:2014
+[@Bohannon:2015]
 :::
 
-## **The Fallacy of Statistical Significance**
+:::
+:::
 
--   Statistical significance does not necessarily imply clinical importance.
--   Misinterpretation of non-significant findings can lead to erroneous conclusions.
--   Inadequate sample sizes in clinical trials limit the power to detect real treatment effects.
--   Examples and statistics highlight the consequences of relying solely on statistical significance.
 
-## **Rethinking the Role of P Values**
 
--   The American Statistical Association (ASA) issued a statement addressing misuse of P values.
--   P values alone cannot determine the truth or importance of research findings.
--   Common misconceptions about P values and their limitations.
--   Importance of transparent reporting and rigorous analysis in scientific research.
+## The Fallacy of Statistical Significance
+- The p-value was **never meant to be used the way** it is used today [@Nuzzo:2014].
 
-## **Addressing Missteps in Scientific Inquiry**
+- P-values alone **cannot determine the truth or importance** of research findings [@Baker:2016].
+  - Just by chance, many conclusions will be wrong. 
+  - **P-hacking** (also data dredging or data snooping). It is trying multiple things until you get the desired p-value. 
 
--   ASA's recommendations emphasize responsible use of P values and transparent reporting.
--   Need for critical thinking and careful interpretation of statistical evidence.
--   Reactions from experts and perspectives on the ASA's statement.
--   Strategies for improving research practices and avoiding common pitfalls.
+## The Fallacy of Statistical Significance
 
-## **Moving Towards a More Rigorous Approach**
+::: columns
+::: {.column width="40%"}
 
--   Encouragement for researchers to adopt a nuanced and rigorous approach to statistical analysis.
--   Importance of transparency, reproducibility, and open science in advancing scientific knowledge.
--   Suggestions for improving research practices and fostering a culture of critical thinking.
+![](02_figs/p-hackin-1.png){fig-align="center" width="500"}
 
-## **Conclusion**
+:::{style='font-size:0.8em'}
+[@StefanSchonbrodt:2023]
+:::
 
--   Summary of key takeaways: understanding limitations of statistical significance and P values.
--   Call to action for researchers to embrace transparency, rigor, and critical thinking in their work.
--   Emphasis on the collective responsibility to uphold the integrity of scientific research for the betterment of society.
+:::
+::: {.column width="60%"}
+
+<p align="center">
+<iframe width="600" height="500" src="https://projects.fivethirtyeight.com/p-hacking/index.html" sandbox="allow-forms allow-scripts"> </iframe>
+</p>
+
+:::{style='font-size:0.8em'}
+[@Aschwanden:2015]
+:::
+
+:::
+:::
+
+
+## The Fallacy of Statistical Significance
+- The p-value was **never meant to be used the way** it is used today [@Nuzzo:2014].
+
+- P-values alone **cannot determine the truth or importance** of research findings [@Baker:2016].
+  - Just by chance, many conclusions will be wrong. 
+  - **P-hacking**. It is trying multiple things until you get the desired p-value. 
+
+- Tendency to deflect attention from the actual **size of an effect** [@Nuzzo:2014].
+
+## The Fallacy of Statistical Significance
+
+::: columns
+
+::: {.column width="50%"}
+
+![](02_figs/small-diff-1.png){fig-align="center"}
+
+:::{style='font-size:0.8em'}
+
+@CacioppoCacioppoGonzaga:2013
+
+:::
+
+:::
+::: {.column width="50%"}
+
+![](02_figs/small-diff.png){fig-align="center"}
+
+On a 1-to-7 scale at 5.6, versus 5.5 for those who met offline.
+
+:::{style='font-size:0.8em'}
+@Nuzzo:2013
+:::
+
+:::
+:::
+
+
+
+## Reporting non-significant findings 
+
+```{r, dev.args=list(bg="transparent")}
+#| fig-height: 4.5
+#| fig-width: 8
+#| fig-align: "center"
+#| dev: "png"
+
+plot_acc_null 
+```
+
+## Reporting non-significant findings 
+
+- **"Absence of evidence is not evidence of absence"** [@AltmanBland:1995].
+  - The **sample size** of controlled trials is generally inadequate, with a consequent lack of power to detect real, and clinically worthwhile, differences in treatment.
+  - The lack of statistical significance of most of the individual trials led to a **long delay** before the true value is found.
+
+
+## How big is the problem?
+::: columns
+::: {.column width="35%"}
+
+- Beside the problems, it is **one of the most influential metrics to determine whether a result is published** in a scientific journal.
+
+:::
+
+::: {.column width="65%"}
+::: {style="text-align: center"  width="300"}
+Z-values extracted from confidence intervals in Medline between 1976 and 2019
+:::
+
+![](02_figs/Z_plot.png){fig-align="center" width="650"}.  
+
+:::{style='font-size:0.8em'}  
+[@Barnett:2022]
+:::
+
+:::
+:::
+
+## How big is the problem?
+
+False positive probability = 9 / (9 + 12) = 43%
+
+![](https://raw.githubusercontent.com/agbarnett/talks/main/TRI/figures/pval_journey4.jpg){fig-align="center"}
+
+:::{style='font-size:0.8em'}
+
+[@Colquhoun:2014; @Barnett:2022]
+:::
+
+
+## Rethinking the Role of P Values
+
+- Avoid making scientific conclusions or policy decisions based solely on P-values [@Baker:2016].
+- You should weigh the evidence properly before drawing any conclusions (e.g. consider sample size).
+- P-values alone are not enough to determine the truth or importance of research findings.
+- It's crucial to ensure transparent reporting and rigorous analysis of scientific research.
+- We should question whether the absence of evidence is a valid justification for inaction [@AltmanBland:1995].
+
+
+## Moving Towards a More Rigorous Approach
+
+-  Second generation p-values [@BlumeGreevyWelty:2019]. 
+-  Effect size + p-value [@GoodmanSpruillKomaroff:2019]. 
+-  Change threshold, show odds [@BenjaminBerger:2019]. 
+-  Confidence interval + false positive risk [@BlumeGreevyWelty:2019]. 
+-  Second generation p-values [@BlumeGreevyWelty:2019]. 
+-  Second generation p-values [@BlumeGreevyWelty:2019]. 
+
+## Conclusion
+
+Here are some important recommendations to keep in mind with regards to scientific research:
+
+- Avoid making scientific conclusions or policy decisions based solely on P-values [@Baker:2016].
+- You should weigh the evidence properly before drawing any conclusions.
+- P-values alone are not enough to determine the truth or importance of research findings.
+- It's crucial to ensure transparent reporting and rigorous analysis of scientific research.
+- We should question whether the absence of evidence is a valid justification for inaction [@AltmanBland:1995].
+- Always consider other factors of the study such as sample size.
 
 ## References
 
 ::: {#refs}
 :::
+
+
+## Rethinking the Role of P Values {style='font-size:0.9em'}
+
+A little of context:
+
+- [Early 1900's ] Neyman vs. Fisher. 
+- [1995] @AltmanBland:1995's critic to the evaluation of non-significant findings.
+- [2014] @Nuzzo:2014's critic to the use of p-values and quantitative methodology.
+- [2015] @LeekPeng:2015's critic to the use of p-values and quantitative methodology.
+- [2015] Ban of p-values by Basic and Applied Social Psychology (BASP). 
+- [2016] *The ASA's Statement on p-Values* by @WassersteinLazar:2016.
