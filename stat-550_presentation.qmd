@@ -531,11 +531,11 @@ False positive probability = 9 / (9 + 12) = 43%
 
 **Rethinking the Role of P Values**
 
-- Avoid making scientific conclusions or policy decisions based solely on P-values [@Baker:2016].
-- You should weigh the evidence properly before drawing any conclusions (e.g. consider sample size).
-- P-values alone are not enough to determine the truth or importance of research findings.
-- It is crucial to ensure transparent reporting and rigorous analysis of scientific research.
-- We should question whether the absence of evidence is a valid justification for inaction [@AltmanBland:1995].
+- **Avoid** making scientific conclusions or policy decisions **based only on P-values** [@Baker:2016].
+- You should **weigh the evidence** properly before drawing any conclusions (e.g. consider sample size).
+- P-values alone **are not enough** to determine the truth or importance of research findings.
+- It is crucial to ensure **transparent reporting and rigorous analysis** of scientific research.
+- We should question whether the **absence of evidence is a valid justification for inaction** [@AltmanBland:1995].
 
 
 ## {fullscreen="true" background-image="08_styling/transition-1.png" background-size="100% 100%"}
