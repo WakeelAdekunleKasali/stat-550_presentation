@@ -138,7 +138,7 @@ dist_df = tibble(
   
 ```
 
-## What is a p-value? 
+## What is a p-value? {visibility="hidden"}
 
 Based on that, we create our <span style='color:#808080'>null model</span>.
 
