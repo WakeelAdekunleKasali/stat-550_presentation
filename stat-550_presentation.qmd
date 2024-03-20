@@ -523,7 +523,9 @@ False positive probability = 9 / (9 + 12) = 43%
 :::
 
 
-## Rethinking the Role of P Values
+## Conclusion:
+
+### Rethinking the Role of P Values
 
 - Avoid making scientific conclusions or policy decisions based solely on P-values [@Baker:2016].
 - You should weigh the evidence properly before drawing any conclusions (e.g. consider sample size).
@@ -537,20 +539,11 @@ False positive probability = 9 / (9 + 12) = 43%
 -  Second generation p-values [@BlumeGreevyWelty:2019]. 
 -  Effect size + p-value [@GoodmanSpruillKomaroff:2019]. 
 -  Change threshold, show odds [@BenjaminBerger:2019]. 
--  Confidence interval + false positive risk [@BlumeGreevyWelty:2019]. 
--  Second generation p-values [@BlumeGreevyWelty:2019]. 
--  Second generation p-values [@BlumeGreevyWelty:2019]. 
-
-## Conclusion
-
-Here are some important recommendations to keep in mind with regards to scientific research:
-
-- Avoid making scientific conclusions or policy decisions based solely on P-values [@Baker:2016].
-- You should weigh the evidence properly before drawing any conclusions.
-- P-values alone are not enough to determine the truth or importance of research findings.
-- It's crucial to ensure transparent reporting and rigorous analysis of scientific research.
-- We should question whether the absence of evidence is a valid justification for inaction [@AltmanBland:1995].
-- Always consider other factors of the study such as sample size.
+-  Confidence interval + false positive risk [@Colquhoun:2019]. 
+-  Confidence intervals + analysis of credibility [@Matthews:2019]. 
+-  Sample size dependent significance levels
+ [@Gannonde_Braganca_PereiraPolpo:2019]. 
+- Practical benefit [@Pogrow:2019]. 
 
 ## References
 
