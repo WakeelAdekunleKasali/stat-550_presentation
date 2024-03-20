@@ -95,7 +95,7 @@ Cites
     2.  Assuming that this null hypothesis was in fact true.
     3.  Calculate the chances of getting results at least as extreme as what was actually observed.
 
-> The **p-value** tells us the probability of observing the data that we did, assuming that the null hypothesis is true.
+> The **p-value** tells us the probability of observing our data, assuming that the null hypothesis is true.
 
 ## What is a p-value? 
 
