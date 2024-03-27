@@ -5,7 +5,7 @@ author: "<span style='color:#f10f10f10; font-size:30pt'>Javier Mtz.-Rdz.</span>"
 bibliography: 07_refs/p-value.bib
 format: 
   revealjs:
-    embed-resources: true 
+#    embed-resources: true 
     width: 1200
     slide-number: c
     background-image: 08_styling/normal-background-1.png
